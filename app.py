@@ -1,6 +1,7 @@
 import requests as rq
 from bs4 import BeautifulSoup
 from table import print_table
+from noti import send
 
 def template(data):
     body = []
@@ -52,4 +53,18 @@ for row in table_rows[229:230]: # World Total count
 
 data = template(result)
 print(data)
+
+helper = '''
+
+Column Description:
+-Country: Countries in the World
+-Total case: Number of total cases
+-New case: Number of new cases
+-Total deaths: Number of total deaths
+-New deaths: Number of new deaths
+-Recovered: Number of the recovered
+-Active case: Number of people not cured
+'''
+
+send(data + helper)
 
