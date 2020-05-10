@@ -7,7 +7,7 @@ def template(data):
     body = []
     for i in range(0, data['count']):
         body.append([data['Country'][i], data['Total case'][i], data['New case'][i], data['Total deaths'][i], data['New deaths'][i], data['Recovered'][i], data['Active cases'][i]])
-    return '\n'.join(print_table(body, ["Country", "Total case", "New case", "Total deaths", "New deaths", "Recovered", "Active cases"], 150, 7))
+    return '<code>' + '\n'.join(print_table(body, ["Country", "Total case", "New case", "Total deaths", "New deaths", "Recovered", "Active cases"], 150, 7)) + '</code>'
 
 # BASE_URL = "https://www.worldometers.info/coronavirus/country/us/"
 BASE_URL = "https://www.worldometers.info/coronavirus/#c-all%22"
