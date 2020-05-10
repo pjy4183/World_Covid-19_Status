@@ -29,7 +29,7 @@ result= {
 }
 table_rows = soup.select('.row tbody tr')
 
-for row in table_rows[8:222]:
+for row in table_rows[8:50]: # supposed to be until 222 but because of telegram message limitation
     tds = row.select('td')
     result["Country"].append(tds[0].text)
     result["Total case"].append(tds[1].text)
