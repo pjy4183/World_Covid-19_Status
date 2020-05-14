@@ -29,7 +29,7 @@ result= {
 }
 table_rows = soup.select('.row tbody tr')
 
-for row in table_rows[8:50]: # supposed to be until 222 but because of telegram message limitation
+for row in table_rows[8:40]: # supposed to be until 222 but because of telegram message limitation
     tds = row.select('td')
     result["Country"].append(tds[0].text)
     result["Total case"].append(tds[1].text)
@@ -39,7 +39,16 @@ for row in table_rows[8:50]: # supposed to be until 222 but because of telegram 
     result["Recovered"].append(tds[5].text)
     result["Active cases"].append(tds[6].text)
     result['count'] += 1
-
+for row in table_rows[49:50]: # supposed to be until 222 but because of telegram message limitation
+    tds = row.select('td')
+    result["Country"].append(tds[0].text)
+    result["Total case"].append(tds[1].text)
+    result["New case"].append(tds[2].text)
+    result["Total deaths"].append(tds[3].text)
+    result["New deaths"].append(tds[4].text)
+    result["Recovered"].append(tds[5].text)
+    result["Active cases"].append(tds[6].text)
+    result['count'] += 1
 for row in table_rows[229:230]: # World Total count
     tds = row.select('td')
     result["Country"].append("World")
